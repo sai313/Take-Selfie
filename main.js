@@ -17,7 +17,7 @@ recognition.onresult=function (event) {
     }
 }
 
-camera = document.getElementById("camera");
+camera = document.getElementById("myCamera");
 Webcam.set({
     width:360,
     height:250,
@@ -30,7 +30,7 @@ function speak() {
     speak_data = "Taking your selfie in 5 seconds";
     var utterThis = new SpeechSynthesisUtterance(speak_data);
     synth.speak(utterThis);
-    Webcam.attach(camera);
+    Webcam.attach(myCamera);
     setTimeout(function () {
         take_snapshot();
         save();
@@ -45,7 +45,7 @@ function take_snapshot() {
 
 function save() {
     link=document.getElementById("link");
-    image=document.getElementById("selfie_img").scr;
+    image=document.getElementById("selfie_img").src;
     link.href=image;
     link.click();
 }
